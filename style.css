@@ -29,7 +29,7 @@ input {
 
 button {
     width: 79px;
-    height: 24px;
+    height: 30px;
     text-align: center;
     border: none;
     -webkit-gradient-radius: .2em;
@@ -38,6 +38,7 @@ button {
     -webkit-box-shadow: 0 0px 1px rgba(255,255,255,0.1);
     -moz-box-shadow: 0 0px 1px rgba(255,255,255,0.1);
     box-shadow: 0 0px 1px rgba(255,255,255,0.1);
+    margin: 15px;
     color: #fff;
 }
 
@@ -45,8 +46,14 @@ button:hover {
     background: #363535;
 }
 
+.but {
+    margin: auto;
+    width: 50%;
+    margin-left: 45%;
+    padding: 10px;
+}
+
 form{
     margin: 0 auto;
     width:250px;
-    text-align: center;
  }

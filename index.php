@@ -13,7 +13,10 @@
             <div class="input"><input type="text" name="email" placeholder="E-mail"></div></br>
             <div class="input"><input type="text" name="uid" placeholder="Username"></div></br>
             <div class="input"><input type="password" name="pwd" placeholder="Password"></div></br>
-            <button type="submit">Sign up</button>
+            <div class="but">
+                <button type="submit">Sign up</button></br>
+                <button type="submit">Login</button>
+            </div>
         </form>
 </body>
 </html>
