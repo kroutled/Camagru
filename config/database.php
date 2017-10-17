@@ -7,7 +7,6 @@ $DB_PASSWORD="kroutled";
 try {
     $handle = new PDO("$DB_DSN", "$DB_USER", "$DB_PASSWORD");
     $handle->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "connected";
 }catch(PDOException $e) {
     die("Oops. Something went wrong in the database!");
 }
