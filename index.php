@@ -11,7 +11,7 @@
             <div class="input"><input type="text" name="first" placeholder="First Name"></div></br>
             <div class="input"><input type="text" name="last" placeholder="Last Name"></div></br>
             <div class="input"><input type="email" name="email" placeholder="E-mail"></div></br>
-            <div class="input"><input type="text" name="uid" placeholder="Username"></div></br>
+            <div class="input"><input type="text" name="username" placeholder="Username"></div></br>
             <div class="input"><input type="password" name="pwd" placeholder="Password"></div></br>
             <div class="but">
                 <button type="submit" name="submit" value="ok">Sign up</button></br>
@@ -28,10 +28,10 @@
 $first = $_POST["first"];
 $last = $_POST["last"];
 $email = $_POST["email"];
-$uid = $_POST["uid"];
+$username = $_POST["username"];
 $pwd = $_POST["pwd"];
 $submit = $_POST["submit"];
-if ($submit == 'ok' && !empty($first) && !empty($last) && !empty($email) && !empty($uid) && !empty($pwd))
+if ($submit == 'ok' && !empty($first) && !empty($last) && !empty($email) && !empty($username) && !empty($pwd))
 {
     if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last))
     {
@@ -41,8 +41,8 @@ if ($submit == 'ok' && !empty($first) && !empty($last) && !empty($email) && !emp
     else
     {
         $hashpwd = hash("whirlpool", $pwd);
-        $stmt = $pdo->prepare('INSERT INTO `users` (`user_id`, `user_first`, `user_last`, `user_email`, `user_pwd`) VALUES (NULL, :first, :last, :email, :pwd)');
-        $stmt->execute(['first' => $first, 'last' => $last, 'email' => $email, 'pwd' => $hashpwd]);
+        $stmt = $pdo->prepare('INSERT INTO `users` (`user_id`, `user_first`, `user_last`, `user_email`, `user_username`, `user_pwd`) VALUES (NULL, :first, :last, :email, :username, :pwd)');
+        $stmt->execute(['first' => $first, 'last' => $last, 'email' => $email, 'username' => $username, 'pwd' => $hashpwd]);
         header("Location: login.php");
         exit();
     }
