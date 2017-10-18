@@ -9,5 +9,4 @@ $opt = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
     $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD, $opt);
-    echo "connected";
 ?>

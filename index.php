@@ -40,10 +40,11 @@ if ($submit == 'ok' && !empty($first) && !empty($last) && !empty($email) && !emp
     }
     else
     {
-            $stmt = $pdo->prepare('INSERT INTO `users` (`user_id`, `user_first`, `user_last`, `user_email`, `user_pwd`) VALUES (NULL, :first, :last, :email, :pwd)');
-            $stmt->execute(['first' => $first, 'last' => $last, 'email' => $email, 'pwd' => $pwd]);
-            header("Location: login.php");
-            exit();
+        $hashpwd = hash("whirlpool", $pwd);
+        $stmt = $pdo->prepare('INSERT INTO `users` (`user_id`, `user_first`, `user_last`, `user_email`, `user_pwd`) VALUES (NULL, :first, :last, :email, :pwd)');
+        $stmt->execute(['first' => $first, 'last' => $last, 'email' => $email, 'pwd' => $hashpwd]);
+        header("Location: login.php");
+        exit();
     }
 }
 elseif ($submit == 'ok')
