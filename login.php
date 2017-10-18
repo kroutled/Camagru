@@ -16,7 +16,7 @@
             </div>
         </form>
         <div class="logbut">
-        <a href="index.php"><button class="logbut" type="submit">Sign up</button></a>
+        <a href="index.php"><button type="submit">Sign up</button></a>
         </div>
 </body>
 </html>

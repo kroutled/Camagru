@@ -7,6 +7,7 @@
 </head>
 <body>
     <h2 class="suhead">Register</h2>
+    <div class="form">
         <form method="POST">  
             <div class="input"><input type="text" name="first" placeholder="First Name"></div></br>
             <div class="input"><input type="text" name="last" placeholder="Last Name"></div></br>
@@ -17,8 +18,9 @@
                 <button type="submit" name="submit" value="ok">Sign up</button></br>
             </div>
         </form>
+    </div>
         <div class="logbut">
-        <a href="login.php"><button type="submit">Login</button></a>
+            <a href="login.php"><button id="login_but" type="submit">Login</button></a>
         </div>
 </body>
 </html>
