@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Camagru Login</title>
+    <title>Login</title>
     <link rel="stylesheet" href="style.css">
     <?php include "config/database.php"; ?>
 </head>
