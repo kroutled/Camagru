@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html>
     <title>Home</title>
@@ -5,11 +7,30 @@
 <head>
 </head>
 <body>
+<header>
+    <nav>
+        <div>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+            </ul>
+            <div>
+                <?php
+                    if (isset($_SESSION["loggedin"]))
+                    {
+                        echo '<form action="logout.php" method="POST">
+                        <button type="submit" name="submit">Logout</button>
+                    </form>';
+                    }
+                ?>
+            </div>
+        </div>
+    </nav>
+</header>
 <div class="inline">
     <div class="camera">
         <video id="video" width="100%" height="100%"></video> 
-        <button id="startbutton">teake Photo</button>
-   <script>
+        <button id="startbutton">Take Photo</button>
+   <!--<script>
     (function() {
   // The width and height of the captured photo. We will set the
   // width to the value defined here, but the height will be
@@ -126,7 +147,7 @@
   // once loading is complete.
   window.addEventListener('load', startup, false);
 })();
-    </script>
+    </script>-->
     </div>
     <div class="savedimgs">
     savedimgs
@@ -141,5 +162,4 @@
 </html>
 
 <?php
-    
 ?>
