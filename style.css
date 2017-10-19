@@ -66,7 +66,7 @@ form {
 }
 
 .camera {
-    background-color: #fff;
+    border: 1px solid black;
     height: 700px;
     width: 50%;
     margin: 10px;
@@ -74,13 +74,13 @@ form {
 }
 
 .savedimgs {
-    background-color: #fff;
+    border: 1px solid black;
     height: 700px;
     width: 50%;
     margin: 10px;
 }
 .supimp {
-    background-color: #fff;
+    border: 1px solid black;
     height: 250px;
     width: 98%;
     margin: 10px;
