@@ -5,13 +5,18 @@
 <head>
 </head>
 <body>
+<div class="inline">
     <div class="camera">
-    </div>
-    <div class="supimp">
+    camera
     </div>
     <div class="savedimgs">
+    savedimgs
     </div>
-</body>
+</div>
+    <div class="supimp">
+    superimp
+    </div>
+<body>
 </html>
 
 <?php

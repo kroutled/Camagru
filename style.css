@@ -50,7 +50,7 @@ button:hover {
     width: 100%;
 }
 
-form{
+form {
     margin: 0 auto;
     width: 60%;
     text-align: center;
@@ -60,8 +60,34 @@ form{
     text-align: center;
     width: 100%;
  }
-.form
-{
+.form {
     width: 100%;
     text-align: center;
+}
+
+.camera {
+    background-color: #fff;
+    height: 700px;
+    width: 50%;
+    margin: 10px;
+    float: left;
+}
+
+.savedimgs {
+    background-color: #fff;
+    height: 700px;
+    width: 50%;
+    margin: 10px;
+}
+.supimp {
+    background-color: #fff;
+    height: 250px;
+    width: 98%;
+    margin: 10px;
+}
+
+.inline {
+    text-align: center;
+    width: 100%;
+    display: inline-flex;
 }
