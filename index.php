@@ -42,8 +42,7 @@ if ($submit == 'ok' && !empty($first) && !empty($last) && !empty($email) && !emp
     }
     else
     {
-        $sql = "SELECT COUNT(*) AS count FROM users WHERE user_username = :username";
-        $stmt = $pdo->prepare($sql);
+        $stmt = $pdo->prepare('SELECT COUNT(*) AS count FROM users WHERE user_username = :username');
         $stmt->execute(array($_POST['username']));
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if (intval($row['count']) > 0)
