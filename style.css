@@ -67,7 +67,7 @@ form {
 
 .camera {
     border: 1px solid black;
-    height: 700px;
+    height: 900px;
     width: 50%;
     margin: 10px;
     float: left;
@@ -75,7 +75,7 @@ form {
 
 .savedimgs {
     border: 1px solid black;
-    height: 700px;
+    height: 900px;
     width: 50%;
     margin: 10px;
 }

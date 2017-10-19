@@ -42,11 +42,23 @@ if ($submit == 'ok' && !empty($first) && !empty($last) && !empty($email) && !emp
     }
     else
     {
-        $hashpwd = hash("whirlpool", $pwd);
-        $stmt = $pdo->prepare('INSERT INTO `users` (`user_id`, `user_first`, `user_last`, `user_email`, `user_username`, `user_pwd`) VALUES (NULL, :first, :last, :email, :username, :pwd)');
-        $stmt->execute(['first' => $first, 'last' => $last, 'email' => $email, 'username' => $username, 'pwd' => $hashpwd]);
-        header("Location: login.php");
-        exit();
+        $sql = "SELECT COUNT(*) AS count FROM users WHERE user_username = :username";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(array($_POST['username']));
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (intval($row['count']) > 0)
+        {
+            header("Location: index.php?signup=userexists");
+            exit();
+        }
+        else
+        {
+            $hashpwd = hash("whirlpool", $pwd);
+            $stmt = $pdo->prepare('INSERT INTO `users` (`user_id`, `user_first`, `user_last`, `user_email`, `user_username`, `user_pwd`) VALUES (NULL, :first, :last, :email, :username, :pwd)');
+            $stmt->execute(['first' => $first, 'last' => $last, 'email' => $email, 'username' => $username, 'pwd' => $hashpwd]);
+            header("Location: login.php");
+            exit();
+        }
     }
 }
 elseif ($submit == 'ok')
