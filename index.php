@@ -59,9 +59,19 @@ if ($submit == 'ok' && !empty($first) && !empty($last) && !empty($email) && !emp
             }
             else
             {
+                $confirmcode = rand();
                 $hashpwd = hash("whirlpool", $pwd);
                 $stmt = $pdo->prepare('INSERT INTO `users` (`user_id`, `user_first`, `user_last`, `user_email`, `user_username`, `user_pwd`) VALUES (NULL, :first, :last, :email, :username, :pwd)');
                 $stmt->execute(['first' => $first, 'last' => $last, 'email' => $email, 'username' => $username, 'pwd' => $hashpwd]);
+                $message = 
+                "
+                Confirm Your Email
+                Click the link below to verify your account
+                http://localhost:8080/Camagru/index.php?username=$username&code=$confirmcode
+                ";
+
+                mail($email,"Camagru Confirm Email", $message, "From: DoNotReply@camagru.com");
+                echo "Please confirm registration email";
                 header("Location: login.php");
                 exit();
             }

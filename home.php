@@ -34,14 +34,14 @@
     <div class="camera">
         <video id="video" width="100%" height="100%"></video> 
         <button id="startbutton">Take Photo</button>
-   <!--<script>
+   <script>
     (function() {
   // The width and height of the captured photo. We will set the
   // width to the value defined here, but the height will be
   // calculated based on the aspect ratio of the input stream.
 
-  var width = 320;    // We will scale the photo width to this
-  var height = 0;     // This will be computed based on the input stream
+  //var width = 420;    // We will scale the photo width to this
+  //var height = 0;     // This will be computed based on the input stream
 
   // |streaming| indicates whether or not we're currently streaming
   // video from the camera. Obviously, we start at false.
@@ -151,16 +151,16 @@
   // once loading is complete.
   window.addEventListener('load', startup, false);
 })();
-    </script>-->
+    </script>
     </div>
     <div class="savedimgs">
-    savedimgs
+        savedimgs
     </div>
 </div>
     <div class="supimp">
         <canvas id="canvas" style="display: none"></canvas>
         <img id="photo"/>
-    superimp
+        superimp
     </div>
 <body>
 </html>
