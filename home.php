@@ -17,9 +17,6 @@
 <header>
     <nav>
         <div>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-            </ul>
             <div>
                 <?php
                     if (isset($_SESSION["loggedin"]))
