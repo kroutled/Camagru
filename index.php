@@ -53,11 +53,19 @@ if ($submit == 'ok' && !empty($first) && !empty($last) && !empty($email) && !emp
         }
         else
         {
-            $hashpwd = hash("whirlpool", $pwd);
-            $stmt = $pdo->prepare('INSERT INTO `users` (`user_id`, `user_first`, `user_last`, `user_email`, `user_username`, `user_pwd`) VALUES (NULL, :first, :last, :email, :username, :pwd)');
-            $stmt->execute(['first' => $first, 'last' => $last, 'email' => $email, 'username' => $username, 'pwd' => $hashpwd]);
-            header("Location: login.php");
-            exit();
+            if (strlen($pwd) < 5)
+            {
+                header("Location: index.php?signup=passwordtooshort");
+                exit();
+            }
+            else
+            {
+                $hashpwd = hash("whirlpool", $pwd);
+                $stmt = $pdo->prepare('INSERT INTO `users` (`user_id`, `user_first`, `user_last`, `user_email`, `user_username`, `user_pwd`) VALUES (NULL, :first, :last, :email, :username, :pwd)');
+                $stmt->execute(['first' => $first, 'last' => $last, 'email' => $email, 'username' => $username, 'pwd' => $hashpwd]);
+                header("Location: login.php");
+                exit();
+            }
         }
     }
 }
