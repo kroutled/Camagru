@@ -12,8 +12,7 @@
     }
     if ($code == $db_code)
     {
-        echo "im here";
-        $query = $pdo->prepare("UPDATE `users` SET user_confirmed = '1' WHERE user_username = :username");
+        $query = $pdo->prepare("UPDATE `users` SET user_confirmed = '1', user_confirm_code = '0' WHERE user_username = :username");
         $query->execute(array($_GET['username']));
         header("Location: login.php");
         exit();
