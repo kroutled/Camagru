@@ -36,9 +36,18 @@
             $hashpwd = hash("whirlpool", $pwd);
             if ($hashpwd == $db['user_pwd'])
             {
-                $_SESSION["loggedin"] = $_POST["username"];
-                header("Location: home.php");
-                exit();
+                if ($db["user_confirmed"] == 1)
+                {
+                    $_SESSION["loggedin"] = $_POST["username"];
+                    header("Location: home.php");
+                    exit();
+                }
+                else
+                {
+                    header("Location: login.php?login=usernotconfirmed");
+                    exit();
+                }
+
             }
             else
             {
