@@ -52,7 +52,7 @@ if ($submit == 'ok' && !empty($first) && !empty($last) && !empty($email) && !emp
         }
         else
         {
-            if (strlen($pwd) < 5)
+            if (strlen($pwd) <= 5)
             {
                 header("Location: index.php?signup=passwordtooshort");
                 exit();
@@ -61,13 +61,17 @@ if ($submit == 'ok' && !empty($first) && !empty($last) && !empty($email) && !emp
             {
                 $confirmcode = rand();
                 $hashpwd = hash("whirlpool", $pwd);
-                $stmt = $pdo->prepare('INSERT INTO `users` (`user_id`, `user_first`, `user_last`, `user_email`, `user_username`, `user_pwd`) VALUES (NULL, :first, :last, :email, :username, :pwd)');
-                $stmt->execute(['first' => $first, 'last' => $last, 'email' => $email, 'username' => $username, 'pwd' => $hashpwd]);
+                echo "hello";
+                $stmt = $pdo->prepare('INSERT INTO `users` (`user_id`, `user_first`, `user_last`, `user_email`, `user_username`, `user_pwd`, `user_confirmed`, `user_confirm_code`)
+                 VALUES (NULL, :first, :last, :email, :username, :pwd, :confirm, :confirm_code)');
+                echo "test";
+                $stmt->execute(['first' => $first, 'last' => $last, 'email' => $email, 'username' => $username, 'pwd' => $hashpwd, 'confirm' => '0', 'confirm_code' => $confirmcode]);
+                echo "whats";
                 $message = 
                 "
                 Confirm Your Email
                 Click the link below to verify your account
-                http://localhost:8080/Camagru/index.php?username=$username&code=$confirmcode
+                http://localhost:8080/Camagru/verify.php?username=$username&code=$confirmcode
                 ";
 
                 mail($email,"Camagru Confirm Email", $message, "From: DoNotReply@camagru.com");
