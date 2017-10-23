@@ -19,7 +19,7 @@
         <a href="index.php"><button type="submit">Sign up</button></a>
         </div>
         <div class="logbut">
-        <a href="forgot.php"><button type="submit">Forgot Password?</button></a>
+        <a href="email.php"><button type="submit">Forgot Password?</button></a>
         </div>
 </body>
 </html>
