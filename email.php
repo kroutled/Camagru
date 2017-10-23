@@ -4,12 +4,45 @@
     <link rel="stylesheet" href="style.css">         
 </head>
 <body>
-    <form action="forgot.php" method="POST">
-        <input type="email" name="reset" placeholder="Enter your E-mail address">
+    <form action="" method="POST">
+        <input type="email" name="email" placeholder="Enter your E-mail address">
+        <div class="but">
+            <button type="submit" name="cont" value="ok">Continue</button></br>
+        </div>
     </form>
+    <div class="logbut">
+        <a href="index.php"><button type="submit">Sign up</button></a>
+        </div>
 </body>
 </html>
 
 <?php
-    
+
+    include_once "config/database.php";
+
+    $email = $_POST["email"];
+    $cont = $_POST["cont"];
+
+    $stmt = $pdo->prepare('SELECT * FROM users WHERE user_email = :email');
+    $stmt->execute([':email' => $email]);
+    $db = $stmt->fetch();
+
+    if ($cont == 'ok' && !empty($email))
+    {
+        if ($email == $db['user_email'])
+        {
+            header ("Location: reset.php");
+            exit();
+        }
+        else
+        {
+            header ("Location: email.php?user=notfound");
+            exit();
+        }
+    }
+    elseif ($cont == 'ok')
+    {
+        header ("Location: email.php?emailnotvalid");
+        exit();
+    }
 ?>

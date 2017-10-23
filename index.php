@@ -47,7 +47,7 @@ if ($submit == 'ok' && !empty($first) && !empty($last) && !empty($email) && !emp
     {
         $stmt = $pdo->prepare('SELECT COUNT(*) AS count FROM users WHERE user_username = :username');
         $stmt->execute(array($_POST['username']));
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $row = $stmt->fetch();
         if (intval($row['count']) > 0)
         {
             header("Location: index.php?signup=userexists");
