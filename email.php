@@ -31,8 +31,14 @@
     {
         if ($email == $db['user_email'])
         {
-            header ("Location: reset.php");
-            exit();
+            $message = 
+            "
+            Password Reset:
+            Click the link below to reset your password
+            http://localhost:8080/Camagru/reset.php?access=ok
+            ";
+
+            mail($email,"Camagru Password reset", $message, "From: DoNotReply@camagru.com");
         }
         else
         {

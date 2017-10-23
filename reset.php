@@ -18,27 +18,28 @@
 </html>
 
 <?php
-    include_once "config/database.php";
+   /* include_once "config/database.php";
 
     $newpwd = $_POST["newpwd"];
     $newpwdconfirm = $_POST["newpwdconfirm"];
     $reset = $_POST["reset"];
+    $verify = $_GET['access'];
 
-    if ($reset == "ok" &&!empty($newpwd) && !empty($newpwdconfirm))
-    {
-        if (strlen($newpwd) >= 5)
+        if ($reset == "ok" &&!empty($newpwd) && !empty($newpwdconfirm))
         {
+            if (strlen($newpwd) >= 5)
+            {
             
+            }
+            else
+            {
+                header("Location: reset.php?pwdtooshort");
+                exit();
+            }
         }
-        else
+        elseif ($reset = "ok")
         {
-            header("Location: reset.php?pwdtooshort");
+            header("Location: reset.php?pwdempty");
             exit();
-        }
-    }
-    elseif ($reset = "ok")
-    {
-        header("Location: reset.php?pwdempty");
-        exit();
-    }
+        }*/
 ?>
