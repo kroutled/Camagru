@@ -64,12 +64,9 @@ if ($submit == 'ok' && !empty($first) && !empty($last) && !empty($email) && !emp
             {
                 $confirmcode = rand();
                 $hashpwd = hash("whirlpool", $pwd);
-                echo "hello";
                 $stmt = $pdo->prepare('INSERT INTO `users` (`user_id`, `user_first`, `user_last`, `user_email`, `user_username`, `user_pwd`, `user_confirmed`, `user_confirm_code`)
                  VALUES (NULL, :first, :last, :email, :username, :pwd, :confirm, :confirm_code)');
-                echo "test";
                 $stmt->execute(['first' => $first, 'last' => $last, 'email' => $email, 'username' => $username, 'pwd' => $hashpwd, 'confirm' => '0', 'confirm_code' => $confirmcode]);
-                echo "whats";
                 $message = 
                 "
                 Confirm Your Email
@@ -78,7 +75,6 @@ if ($submit == 'ok' && !empty($first) && !empty($last) && !empty($email) && !emp
                 ";
 
                 mail($email,"Camagru Confirm Email", $message, "From: DoNotReply@camagru.com");
-                echo "Please confirm registration email";
                 header("Location: login.php");
                 exit();
             }
