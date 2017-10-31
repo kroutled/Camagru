@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="style.css">         
 </head>
 <body>
-    <form action="" method="POST">
+    <form method="POST">
         <input type="email" name="email" placeholder="Enter your E-mail address">
         <div class="but">
             <button type="submit" name="cont" value="ok">Continue</button></br>
@@ -39,6 +39,8 @@
             ";
 
             mail($email,"Camagru Password reset", $message, "From: DoNotReply@camagru.com");
+            header ("Location: email.php?emailsent");
+            exit();
         }
         else
         {

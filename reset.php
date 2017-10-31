@@ -4,7 +4,8 @@
     <link rel="stylesheet" href="style.css">         
 </head>
 <body>
-    <form action="" method="POST">
+    <form method="POST">
+        <input type="email" name="email" placeholder="Enter your E-mail address">
         <input type="password" name="newpwd" placeholder="Enter new password">
         <input type="password" name="newpwdconfirm" placeholder="Confirm new password">
         <div class="but">
@@ -18,8 +19,10 @@
 </html>
 
 <?php
-   /* include_once "config/database.php";
 
+    include_once "config/database.php";
+    
+    $email = $_POST["email"];
     $newpwd = $_POST["newpwd"];
     $newpwdconfirm = $_POST["newpwdconfirm"];
     $reset = $_POST["reset"];
@@ -29,7 +32,21 @@
         {
             if (strlen($newpwd) >= 5)
             {
-            
+                if ($newpwd == $newpwdconfirm)
+                {
+                    $stmt = $pdo->prepare('SELECT * FROM users WHERE user_email = :email');
+                    $stmt->execute([':email' => $email]);
+                    $db = $stmt->fetch();
+                    $oldpwd = $db['user_pwd'];
+                    $hashpwd = hash("whirlpool", $newpwd);
+                    $pdo->prepare("UPDATE `users` SET user_pwd = ? WHERE user_email = ?")->execute([$hashpwd, $email]);
+                    header("Location: login.php?pwd reset!");
+                }
+                else
+                {
+                    header("Location: reset.php?pwddontmatch");
+                    exit();
+                }
             }
             else
             {
@@ -37,9 +54,9 @@
                 exit();
             }
         }
-        elseif ($reset = "ok")
+        elseif ($reset = "ok" && empty($newpwd) && empty(newpwdconfirm))
         {
             header("Location: reset.php?pwdempty");
             exit();
-        }*/
+        }
 ?>
