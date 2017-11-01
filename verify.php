@@ -6,7 +6,7 @@
 
     $query = $pdo->prepare('SELECT * FROM `users` WHERE user_username = :username');
     $query->execute(array($_GET['username']));
-    while ($row = $query->fetch(PDO::FETCH_ASSOC))
+    while ($row = $query->fetch())
     {
         $db_code = $row['user_confirm_code'];
     }

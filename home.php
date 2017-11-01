@@ -6,7 +6,6 @@
      exit();
  }
  ?>
-
 <!DOCTYPE html>
 <html>
     <title>Home</title>
@@ -31,8 +30,33 @@
     </nav>
 </header>
 <!--This is where the Camera starts -->
+<div class="booth">
+    <video id="video" width="400" height="300"></video>
+</div>
+<script>
+(function()
+{
+    var video = document.getElementById('video'),
+    vendorUrl = window.URL || window.webkitURL;
 
-<body>
+    navigator.getMedia = navigator.getUserMedia 
+                        || navigator.webkitGetUserMedia 
+                        || navigator.mozGetUserMedia 
+                        || navigator.msGetUserMedia;
+
+    navigator.getMedia({
+        video: true,
+        audio: false
+    }, function(stream){
+        video.src = vendorUrl.createObjectURL(stream);
+        video.play();
+    }, function(error){
+        //an error occured
+        //error.code
+    });
+})();
+</script>
+</body>
 </html>
 
 <?php

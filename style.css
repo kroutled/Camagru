@@ -65,31 +65,10 @@ form {
     width: 100%;
     text-align: center;
 }
-
-/*
-.camera {
-    border: 1px solid black;
-    height: 900px;
-    width: 50%;
-    margin: 10px;
-    float: left;
+/*home page*/
+.booth {
+    width: 40%;
+    background-color: #ccc;
+    border: 10px solid #ddd;
+    margin: 0 auto;
 }
-
-.savedimgs {
-    border: 1px solid black;
-    height: 900px;
-    width: 50%;
-    margin: 10px;
-}
-.supimp {
-    border: 1px solid black;
-    height: 250px;
-    width: 98%;
-    margin: 10px;
-}
-
-.inline {
-    text-align: center;
-    width: 100%;
-    display: inline-flex;
-}*/
