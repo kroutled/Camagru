@@ -68,7 +68,24 @@ form {
 /*home page*/
 .booth {
     width: 40%;
+    height: 40%;
     background-color: #ccc;
     border: 10px solid #ddd;
-    margin: 0 auto;
+    margin: left;
+}
+
+.booth-capture-button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: cornflowerblue;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+
+.superimp {
+    height: 70%;
+    width: 78%;
+    border: 1px solid black;
 }

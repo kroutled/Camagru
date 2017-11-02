@@ -31,12 +31,19 @@
 </header>
 <!--This is where the Camera starts -->
 <div class="booth">
-    <video id="video" width="400" height="300"></video>
+    <video id="video" width="100%" height="100%"></video>
+    <a href="#" id="capture" class="booth-capture-button">Take Photo</a>
+    <canvas id="canvas" width="400" height="300"></canvas>
+</div>
+<div class="superimp">
+    hello
 </div>
 <script>
 (function()
 {
     var video = document.getElementById('video'),
+        canvas = document.getElementById('canvas'),
+        context = canvas.getContext('2d'),
     vendorUrl = window.URL || window.webkitURL;
 
     navigator.getMedia = navigator.getUserMedia 
@@ -51,11 +58,16 @@
         video.src = vendorUrl.createObjectURL(stream);
         video.play();
     }, function(error){
-        //an error occured
-        //error.code
+        console.log("Error");
     });
+
+    document.getElementById('capture').addEventListener('click', function()
+    {
+        context.drawImage(video, 0, 0, 400, 300);
+    })
 })();
 </script>
+<!-- this is where the camera stops! -->
 </body>
 </html>
 
