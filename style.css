@@ -66,9 +66,10 @@ form {
     text-align: center;
 }
 /*home page*/
+
 .booth {
-    width: 40%;
-    height: 40%;
+    width: 500px;
+    height: 500px;
     background-color: #ccc;
     border: 10px solid #ddd;
     margin: left;
@@ -84,8 +85,6 @@ form {
     text-decoration: none;
 }
 
-.superimp {
-    height: 70%;
-    width: 78%;
-    border: 1px solid black;
+.canvas {
+
 }

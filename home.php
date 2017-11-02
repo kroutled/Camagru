@@ -31,13 +31,11 @@
 </header>
 <!--This is where the Camera starts -->
 <div class="booth">
-    <video id="video" width="100%" height="100%"></video>
+    <video id="video" width="400" height="300"></video>
     <a href="#" id="capture" class="booth-capture-button">Take Photo</a>
     <canvas id="canvas" width="400" height="300"></canvas>
 </div>
-<div class="superimp">
-    hello
-</div>
+
 <script>
 (function()
 {
