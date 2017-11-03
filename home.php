@@ -30,12 +30,21 @@
     </nav>
 </header>
 <!--This is where the Camera starts -->
-<div class="booth">
-    <video id="video" width="400" height="300"></video>
-    <a href="#" id="capture" class="booth-capture-button">Take Photo</a>
-    <canvas id="canvas" width="400" height="300"></canvas>
-</div>
+<div class="main_wrapper">
+    <div class="booth_wrapper">
+        <div class="booth">
+            <video id="video"></video>
+            <a href="#" id="capture" class="booth-capture-button">Take Photo</a>
+            
+        </div>
+        <div class="save">
+            <canvas id="canvas" width="100%" height="100%"></canvas>
+        </div>
+    </div>
+    <div class="overlays">
 
+    </div>
+</div>
 <script>
 (function()
 {
