@@ -20,13 +20,14 @@
                 <?php
                     if (isset($_SESSION["loggedin"]))
                     {
-                        echo '<form action="logout.php" method="POST">
-                        <button type="submit" name="submit">Logout</button>
+                        echo '<form class ="logout" action="logout.php" method="POST">
+                        <button id="logout" type="submit" name="submit">Logout</button>
                               </form>';
                     }
                 ?>
             </div>
         </div>
+        <button id="gallbut" action="gallery.php" method="POST">Gallery</button>
     </nav>
 </header>
 <!--This is where the Camera starts -->
@@ -35,16 +36,34 @@
         <div class="booth">
             <video id="video"></video>
             <a href="#" id="capture" class="booth-capture-button">Take Photo</a>
-            
-        </div>
-        <div class="save">
             <canvas id="canvas" width="100%" height="100%"></canvas>
         </div>
-    </div>
-    <div class="overlays">
-
+        <div class="overlays">
+            <form method="GET">
+                <input type="radio" name="burger" value="images/burger.png" checked>
+                <img src="images/burger.png" style="height: 75px; width: 75px"></br>
+                <input type="radio" name="pika" value="images/pikachu.png">
+                <img src="images/pikachu.png" style="height: 75px; width: 75px"></br>
+                <input type="radio" name="reset" value="images/reset.png">
+                <img src="images/reset.png" style="height: 75px; width: 75px"></br>
+            </form>
+            <!--
+            <div style = "width:30%; height:30%;">
+                <button class="layover"><img src = "images/pikachu.png"></button>
+            </div>
+            <div>
+                <button class="layover"><img src = "images/reset.png"></button>
+            </div>
+            <div>
+                <button class="layover"><img src = "images/burger.png"></button>
+            </div>
+                -->
+        </div>
+        <div class="save">
+        </div>
     </div>
 </div>
+<!--
 <script>
 (function()
 {
@@ -74,7 +93,9 @@
     })
 })();
 </script>
+-->
 <!-- this is where the camera stops! -->
+<footer>@kroutled</footer>
 </body>
 </html>
 

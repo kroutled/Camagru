@@ -20,7 +20,7 @@
         </form>
     </div>
         <div class="logbut">
-            <a href="login.php"><button id="login_but" type="submit">Login</button></a>
+            <a href="login.php"><button type="submit">Login</button></a>
         </div>
         <div class="logbut">
         <a href="email.php"><button type="submit">Forgot Password?</button></a>
