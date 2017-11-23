@@ -27,7 +27,7 @@
                 ?>
             </div>
         </div>
-        <button id="gallbut" action="gallery.php" method="POST">Gallery</button>
+        <a href="gallery.php"><button id="gallbut" type="submit">Gallery</button></a>
     </nav>
 </header>
 <!--This is where the Camera starts -->
@@ -40,7 +40,7 @@
         </div>
         <div class="overlays">
             <form method="GET">
-                <input type="radio" name="burger" value="images/burger.png" checked>
+                <input type="radio" name="burger" value="images/burger.png"/>
                 <img src="images/burger.png" style="height: 75px; width: 75px"></br>
                 <input type="radio" name="pika" value="images/pikachu.png">
                 <img src="images/pikachu.png" style="height: 75px; width: 75px"></br>
@@ -63,7 +63,7 @@
         </div>
     </div>
 </div>
-<!--
+
 <script>
 (function()
 {
@@ -93,9 +93,8 @@
     })
 })();
 </script>
--->
 <!-- this is where the camera stops! -->
-<footer>@kroutled</footer>
+<footer>&copykroutled</footer>
 </body>
 </html>
 
