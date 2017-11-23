@@ -47,17 +47,6 @@
                 <input type="radio" name="reset" value="images/reset.png">
                 <img src="images/reset.png" style="height: 75px; width: 75px"></br>
             </form>
-            <!--
-            <div style = "width:30%; height:30%;">
-                <button class="layover"><img src = "images/pikachu.png"></button>
-            </div>
-            <div>
-                <button class="layover"><img src = "images/reset.png"></button>
-            </div>
-            <div>
-                <button class="layover"><img src = "images/burger.png"></button>
-            </div>
-                -->
         </div>
         <div class="save">
         </div>
