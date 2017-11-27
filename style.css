@@ -75,11 +75,15 @@ form {
 .booth {
 
     float: left;
-    width: 40%;
+    margin-left: 10px;
+    /*width: 40%;
+    testing 
+    background-color: #ccc;
+    border: 10px solid #ddd;*/
 }
 
 .booth-capture-button {
-    width: 100%;
+    width: 60%;
     height: 8%;
     display: block;
     margin: 10px 0;
@@ -121,12 +125,13 @@ form {
     overflow-y: scroll;
     float: left;
 }
-
-#video {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
+/* 
+#video, 
+#canvas {
+     object-fit: cover;
+    width: 60%;
+    height: 60%;
+} */
 
 .pika {
     height: 30%;
@@ -185,3 +190,12 @@ footer {
     background-color: rgb(51, 50, 50);
     right: 10%;
 }
+
+.laid {
+    width: 75px;
+    height: auto;
+}
+/*
+#canvas {
+    display: none;
+}*/

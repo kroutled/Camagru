@@ -42,6 +42,7 @@
                 if ($db["user_confirmed"] == 1)
                 {
                     $_SESSION["loggedin"] = $_POST["username"];
+                    $_SESSION["uid"] = $db["user_id"];
                     header("Location: home.php");
                     exit();
                 }

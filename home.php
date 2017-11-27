@@ -1,5 +1,6 @@
 <?php
  session_start();
+ include "config/database.php";
  if (!isset($_SESSION['loggedin']))
  {
      header('Location: login.php');
@@ -34,19 +35,23 @@
 <div class="main_wrapper">
     <div class="booth_wrapper">
         <div class="booth">
-            <video id="video"></video>
+            <video id="video" width="400" height="300"></video>
             <a href="#" id="capture" class="booth-capture-button">Take Photo</a>
-            <canvas id="canvas" width="100%" height="100%"></canvas>
+            <canvas id="canvas" width=400 height=400></canvas>
+            <input type="submit" onclick="saveImg();">Submit
         </div>
         <div class="overlays">
-            <form method="GET">
-                <input type="radio" name="burger" value="images/burger.png"/>
+            <button class="laid" type="submit"><img src="images/burger.png"></button>
+            <button class="laid" type="submit"></button>
+            <button class="laid" type="submit"></button>
+            <!-- <form method="GET">
+                <input class="olp" type="radio" name="burger" value="images/burger.png"/>
                 <img src="images/burger.png" style="height: 75px; width: 75px"></br>
-                <input type="radio" name="pika" value="images/pikachu.png">
+                <input class="olp" type="radio" name="pika" value="images/pikachu.png">
                 <img src="images/pikachu.png" style="height: 75px; width: 75px"></br>
-                <input type="radio" name="reset" value="images/reset.png">
+                <input class="olp" type="radio" name="reset" value="images/reset.png">
                 <img src="images/reset.png" style="height: 75px; width: 75px"></br>
-            </form>
+            </form> -->
         </div>
         <div class="save">
         </div>
@@ -61,10 +66,10 @@
         context = canvas.getContext('2d'),
     vendorUrl = window.URL || window.webkitURL;
 
-    navigator.getMedia = navigator.getUserMedia 
-                        || navigator.webkitGetUserMedia 
-                        || navigator.mozGetUserMedia 
-                        || navigator.msGetUserMedia;
+    navigator.getMedia =    navigator.getUserMedia 
+                        ||  navigator.webkitGetUserMedia 
+                        ||  navigator.mozGetUserMedia 
+                        ||  navigator.msGetUserMedia;
 
     navigator.getMedia({
         video: true,
@@ -78,14 +83,24 @@
 
     document.getElementById('capture').addEventListener('click', function()
     {
-        context.drawImage(video, 0, 0, 400, 300);
+        context.drawImage(video, 0, 0, 400, 340);
     })
 })();
+
+function saveImg() {
+    canvas = document.getElementById("canvas");
+    var sendcanv= canvas.toDataURL('image/png');
+    var photoshot = 'picture=' + encodeURIComponent(JSON.stringify(sendcanv));
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "./upload.php", true);
+    xhttp.setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
+    xhttp.onreadystatechange = function () {
+        console.log (this.responseText);
+    }
+    xhttp.send(photoshot); 
+}
 </script>
 <!-- this is where the camera stops! -->
-<footer>&copykroutled</footer>
+
 </body>
 </html>
-
-<?php
-?>
