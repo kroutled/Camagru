@@ -44,14 +44,18 @@
             <!-- <button class="laid" type="submit"><img src="images/burger.png"></button>
             <button class="laid" type="submit"></button>
             <button class="laid" type="submit"></button> -->
-            <form method="GET">
+
+            <a href="#"><img class ="test" src="images/burger.png"></a></br>
+            <a href="#"><img class ="test" src="images/reset.png"></a></br>
+            <a href="#"><img class ="test" src="images/pikachu.png"></a></br>
+            <!-- <form method="GET">
                 <input class="olp" type="radio" name="burger" value="images/burger.png"/>
                 <img src="images/burger.png" style="height: 75px; width: 75px"></br>
                 <input class="olp" type="radio" name="pika" value="images/pikachu.png">
                 <img src="images/pikachu.png" style="height: 75px; width: 75px"></br>
                 <input class="olp" type="radio" name="reset" value="images/reset.png">
                 <img src="images/reset.png" style="height: 75px; width: 75px"></br>
-            </form>
+            </form> -->
         </div>
         <div class="save">
         </div>

@@ -76,6 +76,7 @@ form {
 
     float: left;
     margin-left: 10px;
+    width: 40%;
     /*width: 40%;
     testing 
     background-color: #ccc;
@@ -99,7 +100,7 @@ form {
     margin-left: 60%;
     border: 1px solid black;
     height: 100%;
-    width: 50%;
+    width: 40%;
 }
 .main_wrapper
 {
@@ -133,10 +134,6 @@ form {
     height: 60%;
 } */
 
-.pika {
-    height: 30%;
-    width: 30%;
-}
 header {
     position: fixed;
     top: 0;
@@ -198,6 +195,7 @@ header {
 }
 
 #saveimg {
+    position: relative;
     width: 60%;
     height: 8%;
     display: block;
@@ -208,4 +206,11 @@ header {
     text-align: center;
     text-decoration: none;
     border-radius: 0;
+}
+
+.test {
+    height: 36%;
+    width: 80%;
+    margin-left:10%;
+    margin-right: 10%;
 }
