@@ -106,7 +106,7 @@ form {
     position: fixed;
     top: 75px;;
     width: 100%;
-    bottom: 75px;
+    bottom: 30px;
     border: 1px solid black;
 }
 .booth_wrapper
@@ -145,14 +145,15 @@ header {
     width: 100%;
 }
 
-footer {
+.footer {
     position: fixed;
     text-align: right;
     margin-top: 10px;
     bottom: 0;
     border: 1px solid black;
-    height: 75px;
+    height: 30px;
     width: 100%;
+    color: white;
 }
 
 #logout {
@@ -195,7 +196,16 @@ footer {
     width: 75px;
     height: auto;
 }
-/*
-#canvas {
-    display: none;
-}*/
+
+#saveimg {
+    width: 60%;
+    height: 8%;
+    display: block;
+    margin: 10px 0;
+    padding: 10px 0px;
+    background-color: cornflowerblue;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0;
+}

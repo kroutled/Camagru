@@ -38,20 +38,20 @@
             <video id="video" width="400" height="300"></video>
             <a href="#" id="capture" class="booth-capture-button">Take Photo</a>
             <canvas id="canvas" width=400 height=400></canvas>
-            <input type="submit" onclick="saveImg();">Submit
+            <input id ="saveimg" type="submit" onclick="saveImg();">
         </div>
         <div class="overlays">
-            <button class="laid" type="submit"><img src="images/burger.png"></button>
+            <!-- <button class="laid" type="submit"><img src="images/burger.png"></button>
             <button class="laid" type="submit"></button>
-            <button class="laid" type="submit"></button>
-            <!-- <form method="GET">
+            <button class="laid" type="submit"></button> -->
+            <form method="GET">
                 <input class="olp" type="radio" name="burger" value="images/burger.png"/>
                 <img src="images/burger.png" style="height: 75px; width: 75px"></br>
                 <input class="olp" type="radio" name="pika" value="images/pikachu.png">
                 <img src="images/pikachu.png" style="height: 75px; width: 75px"></br>
                 <input class="olp" type="radio" name="reset" value="images/reset.png">
                 <img src="images/reset.png" style="height: 75px; width: 75px"></br>
-            </form> -->
+            </form>
         </div>
         <div class="save">
         </div>
@@ -101,6 +101,6 @@ function saveImg() {
 }
 </script>
 <!-- this is where the camera stops! -->
-
+<div class="footer">&copykroutled</div>
 </body>
 </html>
