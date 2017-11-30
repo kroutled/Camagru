@@ -38,7 +38,7 @@
             <video id="video" width="400" height="300"></video>
             <a href="#" id="capture" class="booth-capture-button">Take Photo</a>
             <canvas id="canvas" width=400 height=400></canvas>
-            <input id ="saveimg" type="submit" onclick="saveImg();">
+            <input action="home.php" id ="saveimg" type="submit" onclick="saveImg();">
         </div>
         <div class="overlays">
             <!-- <button class="laid" type="submit"><img src="images/burger.png"></button>
@@ -58,6 +58,12 @@
             </form> -->
         </div>
         <div class="save">
+        <?//php foreach (array(1, 2, 3) as $thing) { ?>
+            <form action="upload.php" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <button type="submit" name="submit">UPLOAD</button>
+            </form>
+        <?//php } ?>
         </div>
     </div>
 </div>
@@ -96,7 +102,7 @@ function saveImg() {
     var sendcanv= canvas.toDataURL('image/png');
     var photoshot = 'picture=' + encodeURIComponent(JSON.stringify(sendcanv));
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "./upload.php", true);
+    xhttp.open("POST", "./saveimg.php", true);
     xhttp.setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
     xhttp.onreadystatechange = function () {
         console.log (this.responseText);
