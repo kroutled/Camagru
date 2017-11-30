@@ -46,6 +46,7 @@ button {
     margin: 15px;
     color: #fff;
     background-color: rgb(51, 50, 50);
+    cursor: pointer;
 }
 
 button:hover {
@@ -213,4 +214,11 @@ header {
     width: 80%;
     margin-left:10%;
     margin-right: 10%;
+}
+
+textarea {
+    width: 400px;
+    height: 80px;
+    background-color: #fff;
+    resize: none;
 }

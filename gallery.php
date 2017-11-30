@@ -1,3 +1,7 @@
+<?php
+    date_default_timezone_set('Africa/Johannesburg');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +18,16 @@
 <?php foreach($posts as $item) { ?>
 <div>
     <img src="/Camagru/uploads/<?= $item['file_name'] ?>">
+    <?php
+        echo "
+        <form method='POST' action=''>
+            <input type='hidden' name='uid' value='Anonymous'>
+            <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
+            <textarea name='message'></textarea></br>
+            <button name='submit' type='submit'>Comment</button>
+        </form>";
+    ?>
 </div>
 <?php } ?>
-    <h1>COMMENTS!</h1>
 </body>
 </html>
-
-<?php
-    
-?>
