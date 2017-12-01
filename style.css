@@ -222,3 +222,10 @@ textarea {
     background-color: #fff;
     resize: none;
 }
+
+.gallimg > img {
+    /* display: float;
+    align-content: center; */
+    margin-left: auto;
+    margin-right: auto;
+}

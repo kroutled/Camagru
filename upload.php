@@ -1,4 +1,6 @@
 <?php
+session_start();
+include "config/database.php";
     if (isset($_POST["submit"]))
     {
         $file = $_FILES["file"];
@@ -22,6 +24,11 @@
                 {
                     $fileNameNew = uniqid("", true).".".$fileActExt;
                     $fileDest = "uploads/".$fileNameNew;
+                    $stmt = $pdo->prepare('INSERT INTO uploads (userid, file_name)
+                    VALUES (:userid, :file_name)');
+                    $stmt->execute([
+                        'userid' => $_SESSION['uid'],
+                        'file_name' => $fileNameNew]);
                     move_uploaded_file($fileTmpName, $fileDest);
                     header("Location: home.php?uploadsuccess");
                 }
