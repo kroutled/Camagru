@@ -1,6 +1,5 @@
 <?php
     date_default_timezone_set('Africa/Johannesburg');
-    session_start();
     include 'config/database.php';
     include 'comments.php';
 ?>
@@ -18,14 +17,24 @@
     $stmt->execute();
     $posts = $stmt->fetchAll();
 ?>
+<nav>
+<div class="gallbut">
+    <a href="home.php"><button type="submit">Home</button></a>
+</div>
+<div class="gallbut">
+    <a href="index.php"><button type="submit">Signup</button></a>
+</div>
+<div class="gallbut">
+    <a href="login.php"><button type="submit">Login</button></a>
+</div>
+</nav>
 <?php foreach($posts as $item) { ?>
 <div class="gallimg">
     <img src="/Camagru/uploads/<?= $item['file_name'] ?>">
     <?php
-        echo "
-        <form method='POST' action='".setComments()."'>
+        echo "<form method='POST' action='".setComments()."'>
             <input type='hidden' name='uid' value='Anonymous'>
-            <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
+            <input type='hidden' name='dates' value='".date('Y-m-d H:i:s')."'>
             <textarea name='message'></textarea></br>
             <button name='commentSubmit' type='submit'>Comment</button>
         </form>";

@@ -1,23 +1,18 @@
 <?php
-    session_start();
-    include 'config/database.php';
 
 function setComments()
 {
+    include 'config/database.php';
+  
     if (isset($_POST['commentSubmit']))
     {
         $uid = $_POST['uid'];
-        $date = $_POST['date'];
+        $dates = $_POST['dates'];
         $message = $_POST['message'];
 
-        $stmt = $pdo->prepare('INSERT INTO comments (uid, date, message)
-        VALUES (:uid, :date, :message)');
-        $stmt->execute([
-            'uid' => $uid,
-            'dates' => $date,
-            'message' => $message]);
+        $stmt = $pdo->prepare('INSERT INTO comments (cid, uid, dates, message)
+        VALUES (NULL, :uid, :dates, :message)');
+        $stmt->execute(['uid' => $uid, 'dates' => $dates, 'message' => $message]);
     }
-    //header('location: gallery.php')
 }
-
 ?>
