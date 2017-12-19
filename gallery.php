@@ -2,6 +2,7 @@
     date_default_timezone_set('Africa/Johannesburg');
     include 'config/database.php';
     include 'comments.php';
+    session_start();
 
     if (isset($_POST['commentSubmit']))
         setComments();
@@ -33,13 +34,15 @@
 </nav>
 <?php foreach($posts as $item) { ?>
 <div class="gallimg">
-    <img src="/Camagru/uploads/<?= $item['file_name'] ?>">
-        <form method='POST' action=''>
-            <input type='hidden' name='uid' value='Anonymous'>
-            <input type='hidden' name='dates' value='".date('Y-m-d H:i:s')."'>
-            <textarea name='message'></textarea></br>
-            <button name='commentSubmit' type='submit'>Comment</button>
-        </form>
+    <img class = "test" src="/Camagru/uploads/<?= $item['file_name'] ?>">
+    <?php
+            echo"<form method='POST' action=''>
+                    <input type='hidden' name='uid' value=''>
+                    <input type='hidden' name='dates' value='".date('Y-m-d H:i:s')."'>
+                    <textarea name='message'></textarea></br>
+                    <button name='commentSubmit' type='submit'>Comment</button>
+                </form>";
+    ?>
 </div>
 <?php } ?>
 </body>
