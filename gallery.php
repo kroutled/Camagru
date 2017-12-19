@@ -21,20 +21,20 @@
     $stmt->execute();
     $posts = $stmt->fetchAll();
 ?>
-<nav>
-<div class="gallbut">
+<nav class="nav">
+<div class="nav">
     <a href="home.php"><button type="submit">Home</button></a>
 </div>
-<div class="gallbut">
+<div class="nav">
     <a href="index.php"><button type="submit">Signup</button></a>
 </div>
-<div class="gallbut">
+<div class="nav">
     <a href="login.php"><button type="submit">Login</button></a>
 </div>
 </nav>
 <?php foreach($posts as $item) { ?>
 <div class="gallimg">
-    <img class = "test" src="/Camagru/uploads/<?= $item['file_name'] ?>">
+    <img class = "gallimg" src="/Camagru/uploads/<?= $item['file_name'] ?>">
     <?php
             echo"<form method='POST' action=''>
                     <input type='hidden' name='uid' value=''>
