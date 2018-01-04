@@ -30,6 +30,7 @@
             </div>
         </div>
         <a href="gallery.php"><button id="gallbut" type="submit">Gallery</button></a>
+        <a href="proedit.php"><button id="probut" type="submit">Profile</button></a>
     </nav>
 </header>
 <!--This is where the Camera starts -->

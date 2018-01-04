@@ -78,10 +78,6 @@ form {
     float: left;
     margin-left: 10px;
     width: 40%;
-    /*width: 40%;
-    testing 
-    background-color: #ccc;
-    border: 10px solid #ddd;*/
 }
 
 .booth-capture-button {
@@ -127,13 +123,6 @@ form {
     overflow-y: scroll;
     float: left;
 }
-/* 
-#video, 
-#canvas {
-     object-fit: cover;
-    width: 60%;
-    height: 60%;
-} */
 
 header {
     position: fixed;
@@ -188,6 +177,26 @@ header {
     color: #fff;
     background-color: rgb(51, 50, 50);
     right: 10%;
+    display: inline-block;
+}
+
+#probut {
+    position: fixed;
+    width: 116px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    -webkit-gradient-radius: .2em;
+    -moz-border-radius: .2em;
+    border-radius: .2em;
+    -webkit-box-shadow: 0 0px 1px rgba(255,255,255,0.1);
+    -moz-box-shadow: 0 0px 1px rgba(255,255,255,0.1);
+    box-shadow: 0 0px 1px rgba(255,255,255,0.1);
+    margin: 15px;
+    color: #fff;
+    background-color: rgb(51, 50, 50);
+    right: 18%;
+    display: inline-block;
 }
 
 .laid {
@@ -231,5 +240,5 @@ textarea {
 
 .nav {
     display: inline-block;
-    margin: auto;
+    margin-left:10%;
 }

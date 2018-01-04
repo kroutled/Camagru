@@ -21,17 +21,24 @@
     $stmt->execute();
     $posts = $stmt->fetchAll();
 ?>
-<nav class="nav">
-<div class="nav">
-    <a href="home.php"><button type="submit">Home</button></a>
-</div>
-<div class="nav">
-    <a href="index.php"><button type="submit">Signup</button></a>
-</div>
-<div class="nav">
-    <a href="login.php"><button type="submit">Login</button></a>
-</div>
-</nav>
+<header>
+    <nav>
+        <div>
+            <?php
+                if (isset($_SESSION["loggedin"]))
+                {
+                    echo'<a href="home.php"><button id="gallbut" type="submit">Home</button></a>';
+                }
+                else
+                {
+                echo '<div>
+                    <a href="login.php"><button id="gallbut" type="submit">Login</button></a>
+                    </div>';
+                }
+            ?>
+        </div>
+    </nav>
+</header>
 <?php foreach($posts as $item) { ?>
 <div class="gallimg">
     <img class = "gallimg" src="/Camagru/uploads/<?= $item['file_name'] ?>">
