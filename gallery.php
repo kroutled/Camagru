@@ -20,6 +20,7 @@
     $stmt = $pdo->prepare("SELECT file_name FROM uploads");
     $stmt->execute();
     $posts = $stmt->fetchAll();
+
 ?>
 <header>
     <nav>
@@ -48,7 +49,8 @@
                     <input type='hidden' name='dates' value='".date('Y-m-d H:i:s')."'>
                     <textarea name='message'></textarea></br>
                     <button name='commentSubmit' type='submit'>Comment</button>
-                </form>";
+                </form></br>
+                <a href='like.php?type=article&id='>Like</a>";
     ?>
 </div>
 <?php } ?>

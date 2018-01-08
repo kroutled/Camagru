@@ -43,6 +43,7 @@
                 {
                     $_SESSION["loggedin"] = $_POST["username"];
                     $_SESSION["uid"] = $db["user_id"];
+                    $_SESSION['email'] = $db['email'];
                     header("Location: home.php");
                     exit();
                 }

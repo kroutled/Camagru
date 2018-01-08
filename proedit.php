@@ -1,4 +1,5 @@
 <?php
+    include_once "config/database.php";
     session_start();
 ?>
 
@@ -30,16 +31,38 @@
 </header>
 <div class="main_wrapper">
 <div class="form">
-    <h1>Profile</h1>
+    <h1 class="suhead">Profile</h1>
     <form method="POST">
-        <div class="input"><input type="email" name="email" placeholder="E-mail"></div></br>
-        <div class="input"><input type="text" name="username" placeholder="Username"></div></br>
-        <div class="input"><input type="password" name="pwd" placeholder="Password"></div></br>
+        <div class="input"><input type="email" name="upemail" placeholder="E-mail" value=<?php echo $_SESSION['email']?>></div></br>
+        <div class="input"><input type="text" name="upusername" placeholder="Username"></div></br>
         <div class="but">
-            <button type="submit" name="submit" value="ok">Update</button></br>
+            <button type="submit" name="submit" value="ok">Update E-mail/Username</button></br>
+            <button type="submit" name="change" value="ok">Change Password?</button>
+            <div class="logbut">
+                <button>Notifications: <?php echo "ON"?></button>
+            </div>
         </div>
     </form>
 </div>
 </div>
 </body>
 </html>
+
+<?php
+
+$upemail = $_POST['upemail'];
+$upusername = $_POST['upusername'];
+
+if ($_POST['change'] == 'ok')
+{
+    header('Location: email.php');
+}
+
+if ($_POST['submit'] == 'ok')
+{
+    $stmt = $pdo->prepare("UPDATE `users` SET user_email = $upemail, user_username = $upusername WHERE user_username = :username");
+    print("heyoo");
+    $stmt->execute(array($_SESSION['loggedin']));
+    header('Location: home.php');
+}
+?>
