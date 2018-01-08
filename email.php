@@ -10,9 +10,25 @@
             <button type="submit" name="cont" value="ok">Continue</button></br>
         </div>
     </form>
-    <div class="logbut">
-        <a href="index.php"><button type="submit">Sign up</button></a>
-        </div>
+    <?php
+        session_start();
+        if (isset($_SESSION['loggedin']))
+        {
+            echo "
+            <div class='logbut'>
+                <a href='home.php'><button type='submit'>Home</button></a>
+            </div>
+            ";
+        }
+        else
+        {
+            echo "
+            <div class='logbut'>
+                <a href='index.php'><button type='submit'>Sign up</button></a>
+            </div>
+            ";
+        }
+    ?>
 </body>
 </html>
 
