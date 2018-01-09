@@ -1,6 +1,10 @@
 <?php
     include_once "config/database.php";
     session_start();
+    
+    $stmt = $pdo->prepare('SELECT * FROM users WHERE user_username = :username');
+    $stmt->execute([':username' => $_SESSION["loggedin"]]);
+    $db = $stmt->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +44,12 @@
         <div class="but">
             <button type="submit" name="submit" value="ok">Update E-mail/Username</button></br>
             <button type="submit" name="change" value="ok">Change Password?</button>
-            <button type="submit" name="note" value="ok">Notifications:</button>
+            <button type="submit" name="note" value="ok">Notifications: <?php
+                if ($db['notification'] == 1)
+                    echo "ON";
+                else
+                    echo "OFF";
+            ?></button>
         </div>
     </form>
 </div>
