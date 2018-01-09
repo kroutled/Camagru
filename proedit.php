@@ -64,10 +64,9 @@ if ($_POST['change'] == 'ok')
 
 if ($_POST['submit'] == 'ok')
 {
-    $stmt = $pdo->prepare("UPDATE `users` SET user_email = $upemail, user_username = $upusername WHERE user_username = :username");
-    print("heyoo");
-    $stmt->execute(array($_SESSION['loggedin']));
-    header('Location: home.php');
+    $pdo->prepare("UPDATE `users` SET user_email = ? WHERE user_username = ?")->execute([$upemail, $_SESSION['loggedin']]);
+    $pdo->prepare("UPDATE `users` SET user_username = ? WHERE user_username = ?")->execute([$upusername, $_SESSION['loggedin']]);
+    $_SESSION['loggedin'] = $upusername;
 }
 
 if ($_POST['note'] == 'ok')
