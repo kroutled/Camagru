@@ -43,21 +43,11 @@
             <input action="home.php" id ="saveimg" type="submit" onclick="saveImg();">
         </div>
         <div class="overlays">
-            <!-- <button class="laid" type="submit"><img src="images/burger.png"></button>
-            <button class="laid" type="submit"></button>
-            <button class="laid" type="submit"></button> -->
 
-            <a href="#"><img class ="test" src="images/burger.png"></a></br>
+            <button class="test"><img class ="test" src="images/burger.png"></button></br>
             <a href="#"><img class ="test" src="images/reset.png"></a></br>
             <a href="#"><img class ="test" src="images/pikachu.png"></a></br>
-            <!-- <form method="GET">
-                <input class="olp" type="radio" name="burger" value="images/burger.png"/>
-                <img src="images/burger.png" style="height: 75px; width: 75px"></br>
-                <input class="olp" type="radio" name="pika" value="images/pikachu.png">
-                <img src="images/pikachu.png" style="height: 75px; width: 75px"></br>
-                <input class="olp" type="radio" name="reset" value="images/reset.png">
-                <img src="images/reset.png" style="height: 75px; width: 75px"></br>
-            </form> -->
+    
         </div>
         <div class="save">
             <form action="upload.php" method="POST" enctype="multipart/form-data">
