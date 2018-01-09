@@ -16,7 +16,7 @@
         {
             echo "
             <div class='logbut'>
-                <a href='home.php'><button type='submit'>Home</button></a>
+                <a href='proedit.php'><button type='submit'>Profile</button></a>
             </div>
             ";
         }
