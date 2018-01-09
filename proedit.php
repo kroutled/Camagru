@@ -53,8 +53,6 @@
 $upemail = $_POST['upemail'];
 $upusername = $_POST['upusername'];
 
-print ($_POST['notifications']);
-
 $stmt = $pdo->prepare('SELECT * FROM users WHERE user_username = :username');
     $stmt->execute([':username' => $_SESSION["loggedin"]]);
     $db = $stmt->fetch();
