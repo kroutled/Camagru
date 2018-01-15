@@ -33,7 +33,7 @@
     {
         $stmt = $pdo->prepare('SELECT * FROM users WHERE user_username = :username');
         $stmt->execute(['username' => $username]);
-        $db = $stmt->fetch();  
+        $db = $stmt->fetch();
         if ($username == $db["user_username"])
         {
             $hashpwd = hash("whirlpool", $pwd);

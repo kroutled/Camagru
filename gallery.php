@@ -42,7 +42,7 @@
 </header>
 <?php foreach($posts as $item) { ?>
 <div class="gallimg">
-    <img class = "gallimg" src="/Camagru/uploads/<?= $item['file_name'] ?>">
+    <img class = "gallimg" src="<?= $item['file_name']?>">
     <?php
             echo"<form method='POST' action=''>
                     <input type='hidden' name='uid' value=''>
@@ -50,7 +50,7 @@
                     <textarea name='message'></textarea></br>
                     <button name='commentSubmit' type='submit'>Comment</button>
                 </form></br>
-                <a href='like.php?type=article&id='>Like</a>";
+                <a class='like' href='like.php?type=article&id='>Like</a>";
     ?>
 </div>
 <?php } ?>

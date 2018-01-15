@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style.css">
 <head>
 </head>
-<body>
+<body onload="videoStream()">
 <header>
     <nav>
         <div>
@@ -37,16 +37,29 @@
 <div class="main_wrapper">
     <div class="booth_wrapper">
         <div class="booth">
-            <video id="video" width="400" height="300"></video>
-            <a href="#" id="capture" class="booth-capture-button">Take Photo</a>
-            <canvas id="canvas" width=400 height=400></canvas>
+            <div class="overlay_img">
+                <img id="overlay" class="overlay"></img>
+                <canvas id="canvas_img" width=640 height=480></canvas>
+            </div>
+            <div class="video_feed">
+                <video id="video" width="100%" height="100%"></video>
+                <canvas id="canvas" width=640 height=480></canvas>
+            </div>
+            <a href="#" id="capture" class="booth-capture-button" onclick="snapshot()">Take Photo</a>
+            <a href="#" id="newPhoto" class="booth-capture-button" onclick="newPhoto()">Take Another Photo</a>
             <input action="home.php" id ="saveimg" type="submit" onclick="saveImg();">
         </div>
         <div class="overlays">
 
-            <button class="test"><img class ="test" src="images/burger.png"></button></br>
-            <a href="#"><img class ="test" src="images/reset.png"></a></br>
-            <a href="#"><img class ="test" src="images/pikachu.png"></a></br>
+            <button class="ovbut" id="burger" onclick="changeOverlay('images/burger.png')">
+                <img class ="test" src="images/burger.png">
+            </button></br>
+            <button class="ovbut" id="reset" onclick="changeOverlay('images/reset.png')">
+                <img class ="test" src="images/reset.png">
+            </button></br>
+            <button class="ovbut" id="pikachu" onclick="changeOverlay('images/pikachu.png')">
+                <img class ="test" src="images/pikachu.png">
+            </button></br>
     
         </div>
         <div class="save">
@@ -59,18 +72,22 @@
 </div>
 
 <script>
-(function()
-{
+
+function videoStream() {
+
     var video = document.getElementById('video'),
         canvas = document.getElementById('canvas'),
-        context = canvas.getContext('2d'),
+        overlay = document.getElementById('canvas_img'),
+        overlayContext = overlay.getContext('2d'),
+        context = canvas.getContext('2d');
+
     vendorUrl = window.URL || window.webkitURL;
 
     navigator.getMedia =    navigator.getUserMedia 
                         ||  navigator.webkitGetUserMedia 
                         ||  navigator.mozGetUserMedia 
                         ||  navigator.msGetUserMedia;
-
+    context.translate(640, 0);
     navigator.getMedia({
         video: true,
         audio: false
@@ -80,24 +97,63 @@
     }, function(error){
         console.log("Error");
     });
+};
 
-    document.getElementById('capture').addEventListener('click', function()
-    {
-        context.drawImage(video, 0, 0, 400, 340);
-    })
-})();
+function snapshot() {
+		var video = document.getElementById('video'),
+			canvas = document.getElementById('canvas'),
+			overlay = document.getElementById('canvas_img'),
+			context = canvas.getContext('2d'),
+			overlayContext = overlay.getContext('2d');
+
+		context.scale(-1, 1);
+		document.getElementById('video').style.display = "none";
+		document.getElementById('overlay').style.display = "none";
+		document.getElementById('canvas').style.display = "block";
+		document.getElementById('canvas_img').style.display = "block";
+		document.getElementById('newPhoto').style.display = "block";
+		document.getElementById('capture').style.display = "none";
+		var imgsrc = document.getElementById("overlay");
+
+		context.drawImage(video, 0, 0, 640, 480);
+		overlayContext.drawImage(imgsrc, 0, 0, 640, 480);
+}
+
+function newPhoto() {
+	var video = document.getElementById('video'),
+		canvas = document.getElementById('canvas'),
+		overlay = document.getElementById('canvas_img'),
+		context = canvas.getContext('2d'),
+		overlayContext = overlay.getContext('2d');
+
+	document.getElementById('video').style.display = "block";
+	document.getElementById('overlay').style.display = "block";
+	document.getElementById('canvas').style.display = "none";
+	document.getElementById('canvas_img').style.display = "none";
+	document.getElementById('newPhoto').style.display = "none";
+	document.getElementById('capture').style.display = "block";
+	overlayContext.clearRect(0, 0, 640, 480);
+}
 
 function saveImg() {
     canvas = document.getElementById("canvas");
+    overlay = document.getElementById('canvas_img');
+    var img_overlay = overlay.toDataURL('image/png');
     var sendcanv= canvas.toDataURL('image/png');
-    var photoshot = 'picture=' + encodeURIComponent(JSON.stringify(sendcanv));
+    var photoshot = 'picture=' + encodeURIComponent(JSON.stringify(sendcanv)) + "&overlay=" + encodeURIComponent(JSON.stringify(img_overlay)); 
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "./saveimg.php", true);
+    xhttp.open("POST", "./save_photo.php", true);
     xhttp.setRequestHeader ("Content-type", "application/x-www-form-urlencoded");
     xhttp.onreadystatechange = function () {
         console.log (this.responseText);
     }
     xhttp.send(photoshot); 
+}
+
+function changeOverlay(input) {
+    document.getElementById("capture").disabled = false;
+    document.getElementById("overlay").src = input;
+    document.getElementById("overlay").style.display = "block";
 }
 </script>
 <!-- this is where the camera stops! -->
