@@ -62,11 +62,31 @@
             </button></br>
     
         </div>
+<?php
+    $username = $_SESSION['loggedin'];
+    $stmt = $pdo->prepare('SELECT user_id FROM users WHERE user_username = :username');
+    $stmt->execute(['username' => $username]);
+    $userid = $stmt->fetch();
+
+    $stmt = $pdo->prepare('SELECT file_name FROM uploads WHERE userid = :userid ORDER BY `date` DESC LIMIT 3');
+    $stmt->execute(['userid' => $userid['user_id']]);
+    $recent = $stmt->fetchAll();
+?>
         <div class="save">
             <form action="upload.php" method="POST" enctype="multipart/form-data">
                 <input type="file" name="file">
                 <button type="submit" name="submit">UPLOAD</button>
             </form>
+            <div class="recent">
+            <?php
+            
+            
+                foreach($recent as $item)
+                {
+                    echo '<img src="'.$item['file_name'].'"><br>';
+                } 
+            ?>
+            </div>
         </div>
     </div>
 </div>

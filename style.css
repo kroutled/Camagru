@@ -91,10 +91,10 @@ form {
 
 .save {
     position: relative;
-    margin-left: 60%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 100%;
-    width: 40%;
+    width: 39%;
+    float: right;
 }
 .main_wrapper
 {
@@ -102,7 +102,7 @@ form {
     top: 75px;;
     width: 100%;
     bottom: 30px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 .booth_wrapper
 {
@@ -114,7 +114,7 @@ form {
 .overlays
 {
     position: relative;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 100%;
     width: 20%;
     overflow-y: scroll;
@@ -122,19 +122,22 @@ form {
 }
 
 header {
+    background-color: #404040;
     position: fixed;
     top: 0;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 75px;
     width: 100%;
+    z-index: 2;
 }
 
 .footer {
+    background-color: #404040;
     position: fixed;
     text-align: right;
     margin-top: 10px;
     bottom: 0;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 30px;
     width: 100%;
     color: white;
@@ -234,6 +237,7 @@ textarea {
     display: block;
     margin: auto;
     width: 50%;
+    z-index: 1;
 }
 
 .nav {
@@ -282,4 +286,18 @@ textarea {
 
 .like {
     text-align: center;
+}
+
+.recent {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    white-space: nowrap;
+    height: 100%;
+    padding: 5%;
+}
+
+.container {
+    position: absolute;
+    width: 100%;
+    top: 75px;  
 }

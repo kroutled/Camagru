@@ -40,6 +40,8 @@
         </div>
     </nav>
 </header>
+
+<div class="container">
 <?php foreach($posts as $item) { ?>
 <div class="gallimg">
     <img class = "gallimg" src="<?= $item['file_name']?>">
@@ -54,5 +56,8 @@
     ?>
 </div>
 <?php } ?>
+
+</div>
+<div class="footer">&copykroutled</div>
 </body>
 </html>

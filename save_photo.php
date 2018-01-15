@@ -24,8 +24,8 @@ imagecopy($img1, $img2, 0, 0, 0, 0, 640, 480);
 $img_name = tempnam("./uploads", $userid['user_id'] . "_");
 imagepng($img1, $img_name.".png");
 $img_name2 = substr($img_name, strlen($_SERVER['DOCUMENT_ROOT']));
-$stmt = $pdo->prepare('INSERT INTO uploads (userid, file_name)
-        VALUES (:userid, :file_name)');
+$stmt = $pdo->prepare('INSERT INTO uploads (userid, file_name, date)
+        VALUES (:userid, :file_name, NOW())');
         $stmt->execute([
             'userid' => $userid['user_id'],
             'file_name' => $img_name2.".png"]);
