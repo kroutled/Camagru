@@ -55,6 +55,7 @@
 </div>
 </div>
 </body>
+<div class="footer">&copykroutled</div>
 </html>
 
 <?php
