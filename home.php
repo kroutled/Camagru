@@ -79,12 +79,13 @@
             </form>
             <div class="recent">
             <?php
-            
-            
                 foreach($recent as $item)
                 {
                     echo '<img src="'.$item['file_name'].'"><br>';
-                } 
+                    echo '<form method="POST"><button type="submit" name="delete" value = "ok">Delete</button></form><br>';
+                    $del = $_POST['delete'];
+                    print $del;
+                }
             ?>
             </div>
         </div>

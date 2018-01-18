@@ -29,6 +29,9 @@
                 if (isset($_SESSION["loggedin"]))
                 {
                     echo'<a href="home.php"><button id="gallbut" type="submit">Home</button></a>';
+                    echo '<form class ="logout" action="logout.php" method="POST">
+                        <button id="logout" type="submit" name="submit">Logout</button>
+                              </form>';
                 }
                 else
                 {
@@ -46,6 +49,8 @@
 <div class="gallimg">
     <img class = "gallimg" src="<?= $item['file_name']?>">
     <?php
+        if ($_SESSION['loggedin'])
+        {
             echo"<form method='POST' action=''>
                     <input type='hidden' name='uid' value=''>
                     <input type='hidden' name='dates' value='".date('Y-m-d H:i:s')."'>
@@ -53,6 +58,7 @@
                     <button name='commentSubmit' type='submit'>Comment</button>
                 </form></br>
                 <a class='like' href='like.php?type=article&id='>Like</a>";
+        }
     ?>
 </div>
 <?php } ?>
