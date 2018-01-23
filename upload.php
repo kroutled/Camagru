@@ -28,7 +28,7 @@ include "config/database.php";
                     VALUES (:userid, :file_name)');
                     $stmt->execute([
                         'userid' => $_SESSION['uid'],
-                        'file_name' => $fileNameNew]);
+                        'file_name' => $fileDest]);
                     move_uploaded_file($fileTmpName, $fileDest);
                     header("Location: home.php?uploadsuccess");
                 }

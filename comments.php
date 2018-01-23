@@ -8,7 +8,7 @@ function setComments()
     {
         $uid = $_POST['uid'];
         $dates = $_POST['dates'];
-        $message = $_POST['message'];
+        $message = strip_tags($_POST['message']);
 
         if ($message != NULL)
         {

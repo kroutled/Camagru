@@ -45,7 +45,8 @@
                 <video id="video" width="100%" height="100%"></video>
                 <canvas id="canvas" width=640 height=480></canvas>
             </div>
-            <a href="#" id="capture" class="booth-capture-button" onclick="snapshot()">Take Photo</a>
+            <!--<a href="#" id="capture" class="booth-capture-button" onclick="snapshot()">Take Photo</a>-->
+            <button disabled id="capture" class="booth-capture-button" onclick="snapshot()">Take Photo</button>
             <a href="#" id="newPhoto" class="booth-capture-button" onclick="newPhoto()">Take Another Photo</a>
             <input action="home.php" id ="saveimg" type="submit" onclick="saveImg();">
         </div>
@@ -84,7 +85,8 @@
                     echo '<img src="'.$item['file_name'].'"><br>';
                     echo '<form method="POST"><button type="submit" name="delete" value = "ok">Delete</button></form><br>';
                     $del = $_POST['delete'];
-                    print $del;
+
+                    
                 }
             ?>
             </div>
@@ -134,6 +136,7 @@ function snapshot() {
 		document.getElementById('canvas_img').style.display = "block";
 		document.getElementById('newPhoto').style.display = "block";
 		document.getElementById('capture').style.display = "none";
+        document.getElementById("capture").disabled = false;
 		var imgsrc = document.getElementById("overlay");
 
 		context.drawImage(video, 0, 0, 640, 480);
