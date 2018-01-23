@@ -56,7 +56,7 @@
                     <input type='hidden' name='dates' value='".date('Y-m-d H:i:s')."'>
                     <textarea name='message'></textarea></br>
                     <button name='commentSubmit' type='submit'>Comment</button>
-                    <a class='like' href='like.php?type=article&id='>Like</a>
+                    <a href='like.php?type=article&id='><button class='like'>Like</button></a>
                 </form></br>";
         }
     ?>

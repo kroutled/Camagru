@@ -72,6 +72,17 @@
     $stmt = $pdo->prepare('SELECT file_name FROM uploads WHERE userid = :userid ORDER BY `date` DESC LIMIT 3');
     $stmt->execute(['userid' => $userid['user_id']]);
     $recent = $stmt->fetchAll();
+
+
+
+
+
+
+    $stmt = $pdo->prepare('SELECT pid FROM uploads WHERE userid = :userid');
+    $stmt->execute(['userid' => $userid]);
+    $picid = $stmt->fetch();
+    print_r($picid);
+
 ?>
         <div class="save">
             <form action="upload.php" method="POST" enctype="multipart/form-data">
@@ -83,10 +94,9 @@
                 foreach($recent as $item)
                 {
                     echo '<img src="'.$item['file_name'].'"><br>';
-                    echo '<form method="POST"><button type="submit" name="delete" value = "ok">Delete</button></form><br>';
-                    $del = $_POST['delete'];
-
-                    
+                    echo '<form action="delete.php" method="POST">
+                            <button type="submit" name="delete" value = "'.$pid.'">Delete</button>
+                        </form><br>';
                 }
             ?>
             </div>

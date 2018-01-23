@@ -286,7 +286,22 @@ textarea {
 }
 
 .like {
+    width: 60px;
+    height: 30px;
     text-align: center;
+    border: none;
+    -webkit-gradient-radius: .2em;
+    -moz-border-radius: .2em;
+    border-radius: .2em;
+    -webkit-box-shadow: 0 0px 1px rgba(255,255,255,0.1);
+    -moz-box-shadow: 0 0px 1px rgba(255,255,255,0.1);
+    box-shadow: 0 0px 1px rgba(255,255,255,0.1);
+    margin: 15px;
+    color: #fff;
+    background-color: rgb(51, 50, 50);
+    right: 10%;
+    display: inline-block;
+
 }
 
 .recent {
